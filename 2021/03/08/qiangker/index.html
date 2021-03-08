@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Hexo">
+    <meta name="keywords" content="qiangker, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | Hexo</title>
+    <title>qiangker | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">qiangker</h1>
                 </div>
             </div>
         </div>
@@ -444,7 +444,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-06
+                    2021-03-08
                 </div>
                 
 
@@ -465,19 +465,189 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo server
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo generate
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo deploy
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <p>详细又简单的小白抢课教学——通过selenium配合chromedriver模拟手动操作进行抢课，以北航教务系统为例。</p>
+<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><p>大概一秒2-3次，多开的话，没有上限，一秒百次都是可能的。</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><ul>
+<li><p>python3.8</p>
+</li>
+<li><p>selenium包</p>
+<p><code>pip install selenium</code> 即可</p>
+</li>
+<li><p>chromedriver.exe</p>
+<ul>
+<li>首先查看本地Chrome版本，在Chrome输入栏中输入<code>chrome://version/</code>后第一行为版本号。</li>
+</ul>
+<p><img src="/2021/03/08/qiangker/03/08/qiangker/chrome_version.png" alt="chrome_version"></p>
+<ul>
+<li><p>之后下载相应版本的chromedriver</p>
+<p>镜像网站：<a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/chromedriver/">https://npm.taobao.org/mirrors/chromedriver/</a></p>
+<p>官方网站：<a target="_blank" rel="noopener" href="https://sites.google.com/a/chromium.org/chromedriver/home">https://sites.google.com/a/chromium.org/chromedriver/home</a></p>
+</li>
+<li><p>下载完后，chromedriver.exe和py文件放在同一目录下</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="代码流程"><a href="#代码流程" class="headerlink" title="代码流程"></a>代码流程</h2><h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><pre><code># 引入selenium
+# 引入chromedriver
+# 引入Select用于选择
+# 引入time对频率进行控制
+import selenium
+from selenium.webdriver import Chrome
+from selenium.webdriver.support.ui import Select
+import time
+</code></pre>
+<h3 id="打开网页"><a href="#打开网页" class="headerlink" title="打开网页"></a>打开网页</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 打开Chrome</span>
+chrome <span class="token operator">=</span> Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 打开教务系统</span>
+chrome<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://jwxt.buaa.edu.cn:7001/ieas2.1/welcome?falg=1"</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​    如下图所示，此时我们可以用chrome对象实现对它的完全操控。</p>
+<p><img src="/2021/03/08/qiangker/03/08/qiangker/jwxt.png" alt="jwxt"></p>
+<h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><p>之后需要输入学号和密码，那么就需要使得程序锁定到用户名和密码输入框，最通用的方法是利用find_element_by_xpath函数，通过元素的xpath来定位元素。</p>
+<p>那么如何知道元素的xpath呢？在打开的网页上使用快捷键 <code>Shift + Ctrl + C</code> ，这时候将鼠标放在用户名输入框中，整个输入框都会变蓝，代表鼠标正聚焦在这个元素。（右侧突然出现的是Chrome的元素分析栏）。</p>
+<p><img src="/2021/03/08/qiangker/03/08/qiangker/find_xpath.png" alt="find_xpath"></p>
+<p>此时点击一下输入框，右侧分析栏自动定位此元素，然后对其右键-&gt;copy-&gt;copy_full_XPath，这时候就得到了此元素的xpath。</p>
+<p><img src="/2021/03/08/qiangker/03/08/qiangker/copy_xpath.png" alt="copy_xpath"></p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 定位用户名并输入用户名，用send_keys函数来输入</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[2]/div/div[3]/div[2]/div[1]/div[1]/div/input"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">"12345678"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 密码</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'/html/body/div[2]/div/div[3]/div[2]/div[1]/div[3]/div/input'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">"******"</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>一般这样就可以达到效果了，但实际操作上，当我们运行上述两行代码时会报错：NoSuchElementException。</p>
+<p>当时我也寻找了很长时间原因，后来发现是由于网页用到了<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/iframe/4446518?fr=aladdin">iframe</a>，也就是网页中的网页，也就是我们要定位的输入框实际上是位于iframe中的。</p>
+<p><img src="/2021/03/08/qiangker/03/08/qiangker/copy_xpath.png" alt="copy_xpath"></p>
+<p>那么我们就需要将chrome聚焦于这个iframe，然后再用xpath来定位。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 通过xpath定位iframe元素</span>
+iframe <span class="token operator">=</span> chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/iframe"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 使得chrome对象聚焦于iframe</span>
+chrome<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>frame<span class="token punctuation">(</span>iframe<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 定位用户名并输入用户名，用send_keys函数来输入</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[2]/div/div[3]/div[2]/div[1]/div[1]/div/input"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">"12345678"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 密码</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'/html/body/div[2]/div/div[3]/div[2]/div[1]/div[3]/div/input'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">"******"</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>执行效果如下。</p>
+<p><img src="/2021/03/08/qiangker/03/08/qiangker/finish_input.png" alt="finish_input"></p>
+<p>接下来只需要点击登录按钮即可，同理使用快捷键 <code>Shift + Ctrl + C</code> ，鼠标点击登录按钮，在右侧copy_full_XPath得到xpath。定位完成后，使用click函数完成点击操作。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 点击登录</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[2]/div/div[3]/div[2]/div[1]/div[7]/input"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>如果输入的用户名和密码都对的话，就会进入到如下的选课网页。至此，登录完成，其实到现在，实现选课的基本操作已经讲完了，无非都是用xpath来找到元素，实现点击（click）或者输入（send_keys）操作。</p>
+<p><img src="/2021/03/08/qiangker/03/08/qiangker/jwxt_in.png" alt="jwxt_in"></p>
+<h3 id="选课"><a href="#选课" class="headerlink" title="选课"></a>选课</h3><p>同样方法点击学生选课，专业课程。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 点击学生选课</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[2]/div[1]/div[1]/div[2]/div/a[6]/div"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># sleep是为了等待网页动画</span>
+time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 点击专业课程</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[2]/div[2]/div/div[6]/div/a[4]/span[2]"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>执行后效果。</p>
+<p><img src="/2021/03/08/qiangker/03/08/qiangker/normal.png" alt="normal"></p>
+<p>接下来我们要点击一般专业类，这时候也可以发现它处于一个iframe中，同样操作点击即可。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 通过xpath定位iframe元素</span>
+iframe <span class="token operator">=</span> chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[4]/div[1]/iframe"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 使得chrome对象聚焦于iframe，注意，switch_to后chrome将持续处于此iframe中，因此不需要多次使用switch_to</span>
+chrome<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>frame<span class="token punctuation">(</span>iframe<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 点击一般专业类</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[7]/div/div[3]/table/tbody/tr/td[1]/ul/li[2]/a"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>执行后，我们就需要选择院系了，首先，老快捷键找到位置，发现是个<select>，展开后如下图所示。</select></p>
+<p><img src="/2021/03/08/qiangker/03/08/qiangker/department.png" alt="department"></p>
+<p>select展开后有很多option，经过百度查阅资料，我们可以通过如下代码来完成选择。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 定位选择框元素的位置</span>
+select <span class="token operator">=</span> chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[7]/div/div[4]/form/ul/li[3]/select"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 通过select tag构造一个Select对象s</span>
+s <span class="token operator">=</span> Select<span class="token punctuation">(</span>select<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 用option tag中的value实现选择，此处选择06，即计算机学院</span>
+s<span class="token punctuation">.</span>select_by_value<span class="token punctuation">(</span><span class="token string">"06"</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>执行之后可以看到，选择了计算机学院。</p>
+<p><img src="/2021/03/08/qiangker/03/08/qiangker/select.png" alt="select"></p>
+<p>老方法点击查询按钮。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 点击查询按钮</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[7]/div/div[4]/form/ul/li[6]/div/a/span"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>执行后可以看到很多课。</p>
+<p><img src="/2021/03/08/qiangker/03/08/qiangker/start.png" alt="start"></p>
+<p>老方法实现点击选课，加个循环就可以实现实时抢课，但是每次点击选课后就会跳转到其他页面，耽误下一次点击。<br>于是，换一种思路，我们其实只需要在剩余人数大于0的时候点击选课即可，那么如何获取到剩余人数呢。同理，先用xpath找到其所在元素，然后根据查阅资料，发现用元素对象的text成员变量可以直接得到内容。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 找到人数，numbers = '57/80 对外:0/2'，字符串类型</span>
+numbers <span class="token operator">=</span> chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[7]/div/div[6]/table/tbody/tr[2]/td[15]"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+<span class="token comment" spellcheck="true"># 对字符串找到对外剩余人数，number = 0</span>
+number <span class="token operator">=</span> int<span class="token punctuation">(</span>numbers<span class="token punctuation">.</span>split<span class="token punctuation">(</span>sep<span class="token operator">=</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span>sep<span class="token operator">=</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/2021/03/08/qiangker/03/08/qiangker/number.png" alt="number"></p>
+<p>之后，判断，number大于0时点击选课按钮。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">if</span> number <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+      chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[7]/div/div[6]/table/tbody/tr[2]/td[1]/div/a/span"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>至此，整个流程已经结束</p>
+<h3 id="代码完善"><a href="#代码完善" class="headerlink" title="代码完善"></a>代码完善</h3><p>很明显上述的所有代码已经足以完成整套流程，但是为了实现对于课程剩余人数的实时监控，我们还需要用一个循环，即当number == 0时，重新点击查询按钮，最终代码如下。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 引入selenium</span>
+<span class="token comment" spellcheck="true"># 引入chromedriver</span>
+<span class="token comment" spellcheck="true"># 引入Select用于选择</span>
+<span class="token comment" spellcheck="true"># 引入time对频率进行控制</span>
+<span class="token keyword">import</span> selenium
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver <span class="token keyword">import</span> Chrome
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>support<span class="token punctuation">.</span>ui <span class="token keyword">import</span> Select
+<span class="token keyword">import</span> time
+
+<span class="token comment" spellcheck="true"># 打开Chrome</span>
+chrome <span class="token operator">=</span> Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 打开教务系统</span>
+chrome<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://jwxt.buaa.edu.cn:7001/ieas2.1/welcome?falg=1"</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 通过xpath定位iframe元素</span>
+iframe <span class="token operator">=</span> chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/iframe"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 使得chrome对象聚焦于iframe</span>
+chrome<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>frame<span class="token punctuation">(</span>iframe<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 定位用户名并输入用户名，用send_keys函数来输入</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[2]/div/div[3]/div[2]/div[1]/div[1]/div/input"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">"123456"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 密码</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">'/html/body/div[2]/div/div[3]/div[2]/div[1]/div[3]/div/input'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">"******"</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 点击登录</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[2]/div/div[3]/div[2]/div[1]/div[7]/input"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 点击学生选课</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[2]/div[1]/div[1]/div[2]/div/a[6]/div"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># sleep是为了等待网页动画</span>
+time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 点击专业课程</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[2]/div[2]/div/div[6]/div/a[4]/span[2]"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 通过xpath定位iframe元素</span>
+iframe <span class="token operator">=</span> chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[4]/div[1]/iframe"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 使得chrome对象聚焦于iframe，注意，switch_to后chrome将持续处于此iframe中，因此不需要多次使用switch_to</span>
+chrome<span class="token punctuation">.</span>switch_to<span class="token punctuation">.</span>frame<span class="token punctuation">(</span>iframe<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 点击一般专业类</span>
+chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[7]/div/div[3]/table/tbody/tr/td[1]/ul/li[2]/a"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 定位选择框元素的位置</span>
+select <span class="token operator">=</span> chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[7]/div/div[4]/form/ul/li[3]/select"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 通过select tag构造一个Select对象s</span>
+s <span class="token operator">=</span> Select<span class="token punctuation">(</span>select<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 用option tag中的value实现选择，此处选择06，即计算机学院</span>
+s<span class="token punctuation">.</span>select_by_value<span class="token punctuation">(</span><span class="token string">"06"</span><span class="token punctuation">)</span>
+
+flag <span class="token operator">=</span> <span class="token boolean">True</span>
+<span class="token keyword">while</span> flag<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 点击查询按钮</span>
+    chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[7]/div/div[4]/form/ul/li[6]/div/a/span"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 找到人数，numbers = '57/80 对外:0/2'，字符串类型</span>
+    numbers <span class="token operator">=</span> chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[7]/div/div[6]/table/tbody/tr[2]/td[15]"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+    <span class="token comment" spellcheck="true"># 对字符串找到对外剩余人数，number = 0</span>
+    number <span class="token operator">=</span> int<span class="token punctuation">(</span>numbers<span class="token punctuation">.</span>split<span class="token punctuation">(</span>sep<span class="token operator">=</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span>sep<span class="token operator">=</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> number <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 点击选课按钮</span>
+        chrome<span class="token punctuation">.</span>find_element_by_xpath<span class="token punctuation">(</span><span class="token string">"/html/body/div[7]/div/div[6]/table/tbody/tr[2]/td[1]/div/a/span"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        flag <span class="token operator">=</span> <span class="token boolean">False</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Got it"</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这样我们就基本实现了自动选课脚本，但是在实际应用中我们可能会发现，代码跑了一会儿后就报错停了，这时我们可以不断的在出现异常的代码段加入try_expext异常处理机制来处理，使得可以继续运行下去。</p>
+<p>另外，.py可以多开，因此实际上可以同时监控多门课程，或者对一门课程进行一秒十次甚至百次的实时监控，一有空余则会立刻抢到。</p>
+<p><strong>出于对于校园服务器承载能力考虑，千万不要开的过多，占用太多资源，影响大家使用。</strong></p>
 
                 
             </div>
@@ -504,7 +674,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wandy666.github.io./2021/03/06/hello-world/">https://wandy666.github.io./2021/03/06/hello-world/</a>
+                    <a href="https://wandy666.github.io./2021/03/08/qiangker/">https://wandy666.github.io./2021/03/08/qiangker/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -709,9 +879,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/03/08/qiangker/">
                     <div class="card-image">
@@ -729,9 +900,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -740,6 +911,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -747,7 +919,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2021/03/06/hello-world/">
@@ -777,7 +949,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
